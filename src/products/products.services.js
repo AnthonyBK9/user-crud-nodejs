@@ -1,4 +1,4 @@
-const { productControllers } = require('./products.controller')
+const  productControllers  = require('./products.controller')
 
 const getAllProducts = (req, res) => {
     productControllers.getAllProducts()
@@ -10,9 +10,9 @@ const getAllProducts = (req, res) => {
         })
 }
 
-const getAllProductById = (req, res) => {
+const getProductById = (req, res) => {
     const id = req.params.id
-    productControllers.getAllProductById(id)
+    productControllers.getProducyById(id)
         .then( data => {
             if (data) {
                 res.status(200).json(data)
@@ -26,8 +26,8 @@ const getAllProductById = (req, res) => {
 }
 
 const postProduct = (req, res) => {
-    const body = req.body
-    if (body.name && body.description && body.category && body.price && body.isAvailable) {
+    const data = req.body 
+    if (data.name && data.description && data.category && data.price && data.isAvailable) {
         productControllers.createProduct(data)
             .then(response => {
                 res.status(201).json(response)    
@@ -72,7 +72,7 @@ const deleteProduct = (req, res) => {
 
 module.exports = {
     getAllProducts, 
-    getAllProductById, 
+    getProductById, 
     postProduct, 
     pathProduct,
     deleteProduct

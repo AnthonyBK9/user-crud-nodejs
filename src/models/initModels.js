@@ -1,7 +1,7 @@
 const Products = require('./products.models')
 
-const initModel = () => {
+const initModels = () => {
     Products
 }
 
-module.exports = initModel
+module.exports = initModels
